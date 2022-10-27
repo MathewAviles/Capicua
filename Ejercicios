@@ -1,0 +1,74 @@
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Mathew Avilés
+ */
+public class Ejercicios {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Ejercicios prog = new Ejercicios();
+        System.out.println("Hello World!");
+        prog.leer();
+
+    }
+
+    public void leer() {
+        System.out.println("Ingrese la cantidad de números a ingresar");
+
+        int lim, sum = 0;
+        Scanner lec = new Scanner(System.in);
+        lim = lec.nextInt();
+        int i;
+        int[] vector = new int[lim];
+        for (i = 0; i < lim; i++) {
+            vector[i] = leernum();
+
+        }
+
+        for (i = 0; i < lim; i++) {
+            System.out.println("posicion > " + i + " valor:  " + vector[i]);
+
+        }
+
+        for (i = 0; i < lim; i++) {
+            for (int f = 0; f < lim - 1; f++) {
+                if (vector[f] > vector[f + 1]) {
+                    int aux;
+                    aux = vector[f];
+                    vector[f] = vector[f + 1];
+                    vector[f + 1] = aux;
+                }
+            }
+        }
+
+        System.out.println("El vector ordenado es: ");
+
+        for (i = 0; i < lim; i++) {
+            System.out.println("posicion > " + i + " valor:  " + vector[i]);
+        }
+
+        System.out.println("La suma de los valores pares es: ");
+
+        for (i = 0; i < lim; i++) {
+            if (vector[i] % 2 == 0) {
+                sum += vector[i];
+            }
+
+        }
+        System.out.println(" " + sum);
+    }
+
+    public int leernum() {
+        int a;
+        Scanner lec = new Scanner(System.in); //objeto tipo scanner	
+        System.out.println("ingrese el valor");
+        a = lec.nextInt();
+        return a;
+    }
+
+}
